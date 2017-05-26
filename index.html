@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Executor</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="angular.app.js"></script>
+  </head>
+  <body ng-app="executor.app">
+    <div id="header">
+      <div id="title">
+        <h1>Executor</h1>
+      </div>
+      <div id="description">
+        <!-- All of the Node.js APIs are available in this renderer process. -->
+        We are using Node.js <script>document.write(process.versions.node)</script>,
+        Chromium <script>document.write(process.versions.chrome)</script>,
+        and Electron <script>document.write(process.versions.electron)</script>.
+      </div>
+    </div>
+    <div id="content" ng-controller="#content.controller as ctrl">
+      <form ng-submit="ctrl.run()">
+        <input ng-model="ctrl.cwd" class="cwd"></input>
+        <input ng-model="ctrl.cmd" class="cmd"></input>
+        <button class="button blue" id="runButton">
+          Run
+        </button>
+      </form>
+      {{ctrl.cwd}} > {{ctrl.cmd}}<br>
+      <div ng-repeat="result in ctrl.history">
+        {{result.cwd}} > {{result.cmd}}<br/>
+        <pre>{{result.stdout}}</pre>
+      </div>
+    </div>
+  </body>
+  <script>
+    // You can also require other files to run in this process
+    // var executor = require('./executor.js')
+    // document.getElementById("runButton").onclick = function() {
+    //   executor.exec("echo wtffff");
+    // };
+    // var arrowFunc = (a, b) => {return a+b};
+    // console.log(arrowFunc(5, 12));
+  </script>
+</html>

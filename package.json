@@ -1,0 +1,16 @@
+{
+  "name": "Executor",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Executor"
+  ],
+  "author": "Brent Courtois",
+  "devDependencies": {
+    "electron": "~1.6.2",
+    "electron-packager": "^8.7.0"
+  }
+}
